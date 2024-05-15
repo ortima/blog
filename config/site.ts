@@ -5,7 +5,8 @@ export const siteConfig = {
     description: "Next.js 14 blog using Velite, Tailwind CSS and shadcn UI",
     author: "orima",
     links: {
-        github: "https://github.com/ortima"
+        github: "https://github.com/ortima",
+        telegram: "#"
     }
 }
 

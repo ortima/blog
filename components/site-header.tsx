@@ -4,6 +4,7 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { Github, Send } from "lucide-react";
 import { Navbar } from "./navbar";
+import MobileNav from "./mobile-nav";
 
 export function SiteHeader() {
   return (
@@ -13,18 +14,18 @@ export function SiteHeader() {
         <div className="flex flex-1 items-center justify-end space-x-2">
           <nav className="flex items-center">
             <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
-              <div className={cn(buttonVariants({ variant: "ghost" }), "w-10 px-0")}>
+              <div className={cn(buttonVariants({ variant: "ghost" }), "w-10 px-0 hidden sm:inline-flex")}>
                 <Github className="h-4 w-4" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
-            <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
-              <div className={cn(buttonVariants({ variant: "ghost" }), "w-10 px-0")}>
+            <Link href={siteConfig.links.telegram} target="_blank" rel="noreferrer">
+              <div className={cn(buttonVariants({ variant: "ghost" }), "w-10 px-0 hidden sm:inline-flex")}>
                 <Send className="h-4 w-4" />
                 <span className="sr-only">Telegram</span>
               </div>
             </Link>
-
+            <MobileNav />
           </nav>
         </div>
       </div>
