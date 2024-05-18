@@ -2,6 +2,7 @@ import { posts } from '@/.velite'
 import { sortPosts } from "@/lib/utils";
 import { PostItem } from '@/components/post-item';
 import { QueryPagination } from '@/components/query-paginatiion';
+import { Metadata } from 'next';
 
 const POST_PER_PAGE = 3
 
@@ -10,6 +11,11 @@ interface BlogPageProps {
     page?: string
   }
 }
+
+export const metadata: Metadata = {
+  title: "My blog",
+  description: "This is a description",
+};
 
 const BlogPage = async ({ searchParams }: BlogPageProps) => {
   const currentPage = Number(searchParams?.page) || 1
