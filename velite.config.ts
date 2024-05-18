@@ -1,24 +1,24 @@
-import { defineCollection, defineConfig, s } from 'velite'
+import { defineConfig, defineCollection, s } from "velite";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
 	...data,
 	slugAsParams: data.slug.split("/").slice(1).join("/"),
-})
+});
 
 const posts = defineCollection({
-	name: 'Post', // collection type name
-	pattern: 'blog/**/*.mdx', // content files glob pattern
+	name: "Post",
+	pattern: "blog/**/*.mdx",
 	schema: s
 		.object({
-			title: s.string().max(99), // Zod primitive type
-			slug: s.path(), // auto generate slug from file path
-			description: s.string().max(99),
-			date: s.isodate(), // input Date-like string, output ISO Date string.
+			slug: s.path(),
+			title: s.string().max(99),
+			description: s.string().max(999).optional(),
+			date: s.isodate(),
 			published: s.boolean().default(true),
 			body: s.mdx(),
 		})
-		.transform(computedFields)
-})
+		.transform(computedFields),
+});
 
 export default defineConfig({
 	root: "content",
@@ -27,11 +27,11 @@ export default defineConfig({
 		assets: "public/static",
 		base: "/static/",
 		name: "[name]-[hash:6].[ext]",
-		clean: true
+		clean: true,
 	},
 	collections: { posts },
 	mdx: {
 		rehypePlugins: [],
-		recmaPlugins: []
-	}
-})
+		remarkPlugins: [],
+	},
+});
