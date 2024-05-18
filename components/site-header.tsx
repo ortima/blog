@@ -5,6 +5,7 @@ import { buttonVariants } from "./ui/button";
 import { Github, Send } from "lucide-react";
 import { Navbar } from "./navbar";
 import MobileNav from "./mobile-nav";
+import { Modetoggle } from "./mode-toggle";
 
 export function SiteHeader() {
   return (
@@ -25,6 +26,7 @@ export function SiteHeader() {
                 <span className="sr-only">Telegram</span>
               </div>
             </Link>
+            <Modetoggle />
             <MobileNav />
           </nav>
         </div>
