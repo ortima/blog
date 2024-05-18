@@ -1,6 +1,8 @@
 import { posts } from "@/.velite"
 import { MDXContent } from "@/components/mdx-components"
 import { notFound } from "next/navigation"
+import "@/styles/mdx.css";
+
 
 interface PostPageProps {
   params: {
